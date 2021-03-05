@@ -1,0 +1,6 @@
+package com.au.busreservation.repository;
+
+public interface BusRepository extends MongoRepository<bus,Integer>
+{
+
+}

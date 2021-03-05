@@ -1,0 +1,6 @@
+package com.au.busreservation.repository;
+
+public class UserRepository 
+{
+
+}

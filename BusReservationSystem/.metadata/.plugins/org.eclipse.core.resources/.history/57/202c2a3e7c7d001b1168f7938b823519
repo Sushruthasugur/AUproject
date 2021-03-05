@@ -1,0 +1,6 @@
+package com.au.busreservation.resource;
+
+public class BusController 
+{
+
+}

@@ -1,0 +1,106 @@
+package com.au.busreservation.model;
+
+import java.util.Arrays;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+
+@Document(collection = "bus")
+public class Bus 
+{
+	private String _id;
+	private String ArrivalTime;
+	private String DepartureTime;
+	private Integer[] OccupiedSeats;
+	private Integer[] AvailableSeats;
+	private int fare;
+	private Routes routes;
+	
+	public Bus() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Bus(String _id, String arrivalTime, String departureTime, Integer[] occupiedSeats, Integer[] availableSeats,
+			int fare, Routes routes) {
+		super();
+		this._id = _id;
+		this.ArrivalTime = arrivalTime;
+		this.DepartureTime = departureTime;
+		this.OccupiedSeats = occupiedSeats;
+		this.AvailableSeats = availableSeats;
+		this.fare = fare;
+		this.routes = routes;
+	}
+
+	public String get_id() {
+		return _id;
+	}
+
+	public void set_id(String _id) {
+		this._id = _id;
+	}
+
+	public String getArrivalTime() {
+		return ArrivalTime;
+	}
+
+	public void setArrivalTime(String arrivalTime) {
+		this.ArrivalTime = arrivalTime;
+	}
+
+	public String getDepartureTime() {
+		return DepartureTime;
+	}
+
+	public void setDepartureTime(String departureTime) {
+		this.DepartureTime = departureTime;
+	}
+
+	public Integer[] getOccupiedSeats() {
+		return OccupiedSeats;
+	}
+
+	public void setOccupiedSeats(Integer[] occupiedSeats) {
+		this.OccupiedSeats = occupiedSeats;
+	}
+
+	public Integer[] getAvailableSeats() {
+		return AvailableSeats;
+	}
+
+	public void setAvailableSeats(Integer[] availableSeats) {
+		this.AvailableSeats = availableSeats;
+	}
+
+	public int getFare() {
+		return fare;
+	}
+
+	public void setFare(int fare) {
+		this.fare = fare;
+	}
+
+	public Routes getRoutes() {
+		return routes;
+	}
+
+	public void setRoutes(Routes routes) {
+		this.routes = routes;
+	}
+
+	@Override
+	public String toString() {
+		return "Bus [_id=" + _id + ", ArrivalTime=" + ArrivalTime + ", DepartureTime=" + DepartureTime
+				+ ", OccupiedSeats=" + Arrays.toString(OccupiedSeats) + ", AvailableSeats="
+				+ Arrays.toString(AvailableSeats) + ", fare=" + fare + ", routes=" + routes + "]";
+	}
+	
+}

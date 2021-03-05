@@ -1,0 +1,8 @@
+package com.au.busreservation.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface BusRepository extends MongoRepository<Bus,Integer>
+{
+
+}

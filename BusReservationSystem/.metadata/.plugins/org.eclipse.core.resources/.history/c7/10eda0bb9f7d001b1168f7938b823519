@@ -1,0 +1,9 @@
+package com.au.busreservation.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class userService 
+{
+	List<User> findByName(String name);
+}
