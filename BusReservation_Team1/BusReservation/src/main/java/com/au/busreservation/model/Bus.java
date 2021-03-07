@@ -5,13 +5,6 @@ import java.util.Arrays;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-@Getter
-@Setter
-@ToString
 
 @Document(collection = "bus")
 public class Bus 
@@ -25,7 +18,8 @@ public class Bus
 	private int fare;
 	private Routes routes;
 	
-	public Bus() {
+	public Bus() 
+	{
 		super();
 		// TODO Auto-generated constructor stub
 	}

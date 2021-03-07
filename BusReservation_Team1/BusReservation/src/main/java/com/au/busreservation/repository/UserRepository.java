@@ -11,4 +11,7 @@ import com.au.busreservation.model.User;
 public interface UserRepository extends MongoRepository<User , Integer>
 {
 	
+	//to get all the user details based on firstname
+	List<User> findByFirstname(String firstname);
+	
 }

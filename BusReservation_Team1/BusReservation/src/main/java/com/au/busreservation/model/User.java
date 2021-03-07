@@ -1,18 +1,7 @@
 package com.au.busreservation.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.SequenceGenerator;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-@Getter
-@Setter
-@ToString
 
 @Document(collection = "user")
 public class User 
@@ -28,7 +17,8 @@ public class User
 	private String mobileno;
 	private String address;
 	public User(int id, String firstname, String lastname, String email, String password, String gender, String dob,
-			String mobileno, String address) {
+			String mobileno, String address) 
+	{
 		super();
 		this.id = id;
 		this.firstname = firstname;

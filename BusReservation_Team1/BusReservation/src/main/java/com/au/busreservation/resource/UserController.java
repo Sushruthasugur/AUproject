@@ -1,10 +1,11 @@
 package com.au.busreservation.resource;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,61 +16,63 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.au.busreservation.model.User;
-import com.au.busreservation.repository.UserRepository;
+import com.au.busreservation.service.UserService;
 
 @RestController
 @RequestMapping("/user")
 public class UserController 
 {
 	@Autowired
-	private UserRepository userrepo;
+	UserService userService;	
 
-//	@Autowired
-//	private userService userser;
-//	@GetMapping("/name")
-//	public List<User> getByName(@RequestParam(name = "firstname") String name) {
-//		return userser.getByName(name);
-//	}
-	
+	//to add a user
 	@PostMapping("/addUser")
 	public String saveUser(@RequestBody User user)
 	{
-		userrepo.save(user);
-		return "User added successfully : " + user.getId();
+		return userService.saveUser(user);
 	}
 	
+	//to get all the user details
 	@GetMapping("/getAllUsers")
 	public List<User> getUsers()
 	{
-		return userrepo.findAll();
+		return userService.getUsers();
 	}
 	
+	//to get a particular user details
 	@GetMapping("/getAllUsers/{id}")
 	public Optional<User> getUser(@PathVariable int id)
 	{
-		return userrepo.findById(id);
+		return userService.getUser(id);
 	}
 	
+	//to delete a particular user
 	@DeleteMapping("/deleteUser/{id}")
 	public String deleteUser(@PathVariable int id)
 	{
-		userrepo.deleteById(id);
-		return "User acc deleted based on id : " + id;
+		return userService.deleteUser(id);
 	}
 
 	
-//	public List<User> getAllUsers(String lastname)
-//	{
-//		String name=lastname;
-//		List<User> temp = userrepo.findAll();
-//		if(temp.contains(name))
-//		{
-//			return temp;
-//		}
-//		else
-//		return new ArrayList<User>();
-//	}
+	//to get all the user details based on firstname
+	@GetMapping(value = "/firstname")
+	public ResponseEntity<?> getByFirstname(@RequestParam(name = "firstname") String firstname) 
+	{
+		List<User> u = userService.getByFirstname(firstname);
+		if (u.size() > 0) 
+		{
+			return new ResponseEntity<List<User>>(u, HttpStatus.OK);
+		} 
+			else 
+		{
+			return new ResponseEntity<>("No User avaialable with name " + firstname, HttpStatus.NOT_FOUND);
+		}
+	}
 	
-	
+	@GetMapping("/example")
+	public List<User> getAllByExample(@RequestBody User user)
+	{
+		return userService.getAllByExample(user);
+	}
 	
 }
