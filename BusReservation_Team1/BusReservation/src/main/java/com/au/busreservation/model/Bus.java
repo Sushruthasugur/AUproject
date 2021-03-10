@@ -1,10 +1,7 @@
 package com.au.busreservation.model;
-
 import java.util.Arrays;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 
 @Document(collection = "bus")
 public class Bus 
@@ -21,7 +18,6 @@ public class Bus
 	public Bus() 
 	{
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Bus(String id, String arrivalTime, String departureTime, Integer[] occupiedSeats, Integer[] availableSeats,

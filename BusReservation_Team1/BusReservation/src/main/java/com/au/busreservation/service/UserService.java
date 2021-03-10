@@ -17,10 +17,9 @@ public class UserService
 	UserRepository userrepo;
 
 	//to add a user
-	public String saveUser(User user) 
+	public User saveUser(User user) 
 	{
-		userrepo.save(user);
-		return "User added successfully : " + user.getId();
+		return userrepo.save(user);
 	}
 	
 	//to get all the user details
@@ -41,12 +40,6 @@ public class UserService
 		userrepo.deleteById(id);
 		return "User acc deleted based on id : " + id;
 	}
-
-	public List<User> getByFirstname(String firstname) 
-	{
-		return userrepo.findByFirstname(firstname);
-	}
-	
 	public List<User> getAllByExample(User user) 
 	{
 		Example<User> u = Example.of(user);

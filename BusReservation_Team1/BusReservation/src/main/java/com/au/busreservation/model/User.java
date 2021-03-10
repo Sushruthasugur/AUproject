@@ -8,32 +8,27 @@ public class User
 {
 	@Id
 	private int id;
-	private String firstname;
-	private String lastname ;
+	private String name;
 	private String email;
 	private String password;
 	private String gender;
 	private String dob;
 	private String mobileno;
-	private String address;
-	public User(int id, String firstname, String lastname, String email, String password, String gender, String dob,
-			String mobileno, String address) 
+	public User(int id, String name, String email, String password, String gender, String dob,
+			String mobileno) 
 	{
 		super();
 		this.id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
+		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.gender = gender;
 		this.dob = dob;
 		this.mobileno = mobileno;
-		this.address = address;
 	}
 	public User() 
 	{
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public int getId() {
 		return id;
@@ -41,17 +36,11 @@ public class User
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getFirstname() {
-		return firstname;
+	public String getName() {
+		return name;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-	public String getLastname() {
-		return lastname;
-	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getEmail() {
 		return email;
@@ -82,18 +71,6 @@ public class User
 	}
 	public void setMobileno(String mobileno) {
 		this.mobileno = mobileno;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email
-				+ ", password=" + password + ", gender=" + gender + ", dob=" + dob + ", mobileno=" + mobileno
-				+ ", address=" + address + "]";
 	}
 	
 }
